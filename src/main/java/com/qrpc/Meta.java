@@ -14,6 +14,240 @@ public final class Meta {
     registerAllExtensions(
         (com.google.protobuf.ExtensionRegistryLite) registry);
   }
+  /**
+   * Protobuf enum {@code qrpc.meta.Status}
+   */
+  public enum Status
+      implements com.google.protobuf.ProtocolMessageEnum {
+    /**
+     * <code>SUCCESS = 0;</code>
+     */
+    SUCCESS(0),
+    /**
+     * <code>TIME_OUT = 2;</code>
+     */
+    TIME_OUT(2),
+    /**
+     * <code>SERVICE_NOT_FOUND = 3;</code>
+     */
+    SERVICE_NOT_FOUND(3),
+    UNRECOGNIZED(-1),
+    ;
+
+    /**
+     * <code>SUCCESS = 0;</code>
+     */
+    public static final int SUCCESS_VALUE = 0;
+    /**
+     * <code>TIME_OUT = 2;</code>
+     */
+    public static final int TIME_OUT_VALUE = 2;
+    /**
+     * <code>SERVICE_NOT_FOUND = 3;</code>
+     */
+    public static final int SERVICE_NOT_FOUND_VALUE = 3;
+
+
+    public final int getNumber() {
+      if (this == UNRECOGNIZED) {
+        throw new java.lang.IllegalArgumentException(
+            "Can't get the number of an unknown enum value.");
+      }
+      return value;
+    }
+
+    /**
+     * @param value The numeric wire value of the corresponding enum entry.
+     * @return The enum associated with the given numeric wire value.
+     * @deprecated Use {@link #forNumber(int)} instead.
+     */
+    @java.lang.Deprecated
+    public static Status valueOf(int value) {
+      return forNumber(value);
+    }
+
+    /**
+     * @param value The numeric wire value of the corresponding enum entry.
+     * @return The enum associated with the given numeric wire value.
+     */
+    public static Status forNumber(int value) {
+      switch (value) {
+        case 0: return SUCCESS;
+        case 2: return TIME_OUT;
+        case 3: return SERVICE_NOT_FOUND;
+        default: return null;
+      }
+    }
+
+    public static com.google.protobuf.Internal.EnumLiteMap<Status>
+        internalGetValueMap() {
+      return internalValueMap;
+    }
+    private static final com.google.protobuf.Internal.EnumLiteMap<
+        Status> internalValueMap =
+          new com.google.protobuf.Internal.EnumLiteMap<Status>() {
+            public Status findValueByNumber(int number) {
+              return Status.forNumber(number);
+            }
+          };
+
+    public final com.google.protobuf.Descriptors.EnumValueDescriptor
+        getValueDescriptor() {
+      if (this == UNRECOGNIZED) {
+        throw new java.lang.IllegalStateException(
+            "Can't get the descriptor of an unrecognized enum value.");
+      }
+      return getDescriptor().getValues().get(ordinal());
+    }
+    public final com.google.protobuf.Descriptors.EnumDescriptor
+        getDescriptorForType() {
+      return getDescriptor();
+    }
+    public static final com.google.protobuf.Descriptors.EnumDescriptor
+        getDescriptor() {
+      return com.qrpc.Meta.getDescriptor().getEnumTypes().get(0);
+    }
+
+    private static final Status[] VALUES = values();
+
+    public static Status valueOf(
+        com.google.protobuf.Descriptors.EnumValueDescriptor desc) {
+      if (desc.getType() != getDescriptor()) {
+        throw new java.lang.IllegalArgumentException(
+          "EnumValueDescriptor is not for this type.");
+      }
+      if (desc.getIndex() == -1) {
+        return UNRECOGNIZED;
+      }
+      return VALUES[desc.getIndex()];
+    }
+
+    private final int value;
+
+    private Status(int value) {
+      this.value = value;
+    }
+
+    // @@protoc_insertion_point(enum_scope:qrpc.meta.Status)
+  }
+
+  /**
+   * Protobuf enum {@code qrpc.meta.Type}
+   */
+  public enum Type
+      implements com.google.protobuf.ProtocolMessageEnum {
+    /**
+     * <code>REQUEST = 0;</code>
+     */
+    REQUEST(0),
+    /**
+     * <code>RESPOND = 1;</code>
+     */
+    RESPOND(1),
+    /**
+     * <code>PEER = 2;</code>
+     */
+    PEER(2),
+    UNRECOGNIZED(-1),
+    ;
+
+    /**
+     * <code>REQUEST = 0;</code>
+     */
+    public static final int REQUEST_VALUE = 0;
+    /**
+     * <code>RESPOND = 1;</code>
+     */
+    public static final int RESPOND_VALUE = 1;
+    /**
+     * <code>PEER = 2;</code>
+     */
+    public static final int PEER_VALUE = 2;
+
+
+    public final int getNumber() {
+      if (this == UNRECOGNIZED) {
+        throw new java.lang.IllegalArgumentException(
+            "Can't get the number of an unknown enum value.");
+      }
+      return value;
+    }
+
+    /**
+     * @param value The numeric wire value of the corresponding enum entry.
+     * @return The enum associated with the given numeric wire value.
+     * @deprecated Use {@link #forNumber(int)} instead.
+     */
+    @java.lang.Deprecated
+    public static Type valueOf(int value) {
+      return forNumber(value);
+    }
+
+    /**
+     * @param value The numeric wire value of the corresponding enum entry.
+     * @return The enum associated with the given numeric wire value.
+     */
+    public static Type forNumber(int value) {
+      switch (value) {
+        case 0: return REQUEST;
+        case 1: return RESPOND;
+        case 2: return PEER;
+        default: return null;
+      }
+    }
+
+    public static com.google.protobuf.Internal.EnumLiteMap<Type>
+        internalGetValueMap() {
+      return internalValueMap;
+    }
+    private static final com.google.protobuf.Internal.EnumLiteMap<
+        Type> internalValueMap =
+          new com.google.protobuf.Internal.EnumLiteMap<Type>() {
+            public Type findValueByNumber(int number) {
+              return Type.forNumber(number);
+            }
+          };
+
+    public final com.google.protobuf.Descriptors.EnumValueDescriptor
+        getValueDescriptor() {
+      if (this == UNRECOGNIZED) {
+        throw new java.lang.IllegalStateException(
+            "Can't get the descriptor of an unrecognized enum value.");
+      }
+      return getDescriptor().getValues().get(ordinal());
+    }
+    public final com.google.protobuf.Descriptors.EnumDescriptor
+        getDescriptorForType() {
+      return getDescriptor();
+    }
+    public static final com.google.protobuf.Descriptors.EnumDescriptor
+        getDescriptor() {
+      return com.qrpc.Meta.getDescriptor().getEnumTypes().get(1);
+    }
+
+    private static final Type[] VALUES = values();
+
+    public static Type valueOf(
+        com.google.protobuf.Descriptors.EnumValueDescriptor desc) {
+      if (desc.getType() != getDescriptor()) {
+        throw new java.lang.IllegalArgumentException(
+          "EnumValueDescriptor is not for this type.");
+      }
+      if (desc.getIndex() == -1) {
+        return UNRECOGNIZED;
+      }
+      return VALUES[desc.getIndex()];
+    }
+
+    private final int value;
+
+    private Type(int value) {
+      this.value = value;
+    }
+
+    // @@protoc_insertion_point(enum_scope:qrpc.meta.Type)
+  }
+
   public interface RpcMetaDataOrBuilder extends
       // @@protoc_insertion_point(interface_extends:qrpc.meta.RpcMetaData)
       com.google.protobuf.MessageOrBuilder {
@@ -31,22 +265,38 @@ public final class Meta {
         getServiceNameBytes();
 
     /**
-     * <code>string method_id = 2;</code>
+     * <code>int32 method_id = 2;</code>
      * @return The methodId.
      */
-    java.lang.String getMethodId();
-    /**
-     * <code>string method_id = 2;</code>
-     * @return The bytes for methodId.
-     */
-    com.google.protobuf.ByteString
-        getMethodIdBytes();
+    int getMethodId();
 
     /**
-     * <code>bytes request = 3;</code>
-     * @return The request.
+     * <code>bytes content = 3;</code>
+     * @return The content.
      */
-    com.google.protobuf.ByteString getRequest();
+    com.google.protobuf.ByteString getContent();
+
+    /**
+     * <code>.qrpc.meta.Status status = 4;</code>
+     * @return The enum numeric value on the wire for status.
+     */
+    int getStatusValue();
+    /**
+     * <code>.qrpc.meta.Status status = 4;</code>
+     * @return The status.
+     */
+    com.qrpc.Meta.Status getStatus();
+
+    /**
+     * <code>.qrpc.meta.Type type = 5;</code>
+     * @return The enum numeric value on the wire for type.
+     */
+    int getTypeValue();
+    /**
+     * <code>.qrpc.meta.Type type = 5;</code>
+     * @return The type.
+     */
+    com.qrpc.Meta.Type getType();
   }
   /**
    * Protobuf type {@code qrpc.meta.RpcMetaData}
@@ -62,8 +312,9 @@ public final class Meta {
     }
     private RpcMetaData() {
       serviceName_ = "";
-      methodId_ = "";
-      request_ = com.google.protobuf.ByteString.EMPTY;
+      content_ = com.google.protobuf.ByteString.EMPTY;
+      status_ = 0;
+      type_ = 0;
     }
 
     @java.lang.Override
@@ -126,53 +377,61 @@ public final class Meta {
     }
 
     public static final int METHOD_ID_FIELD_NUMBER = 2;
-    @SuppressWarnings("serial")
-    private volatile java.lang.Object methodId_ = "";
+    private int methodId_ = 0;
     /**
-     * <code>string method_id = 2;</code>
+     * <code>int32 method_id = 2;</code>
      * @return The methodId.
      */
     @java.lang.Override
-    public java.lang.String getMethodId() {
-      java.lang.Object ref = methodId_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        methodId_ = s;
-        return s;
-      }
-    }
-    /**
-     * <code>string method_id = 2;</code>
-     * @return The bytes for methodId.
-     */
-    @java.lang.Override
-    public com.google.protobuf.ByteString
-        getMethodIdBytes() {
-      java.lang.Object ref = methodId_;
-      if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        methodId_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
+    public int getMethodId() {
+      return methodId_;
     }
 
-    public static final int REQUEST_FIELD_NUMBER = 3;
-    private com.google.protobuf.ByteString request_ = com.google.protobuf.ByteString.EMPTY;
+    public static final int CONTENT_FIELD_NUMBER = 3;
+    private com.google.protobuf.ByteString content_ = com.google.protobuf.ByteString.EMPTY;
     /**
-     * <code>bytes request = 3;</code>
-     * @return The request.
+     * <code>bytes content = 3;</code>
+     * @return The content.
      */
     @java.lang.Override
-    public com.google.protobuf.ByteString getRequest() {
-      return request_;
+    public com.google.protobuf.ByteString getContent() {
+      return content_;
+    }
+
+    public static final int STATUS_FIELD_NUMBER = 4;
+    private int status_ = 0;
+    /**
+     * <code>.qrpc.meta.Status status = 4;</code>
+     * @return The enum numeric value on the wire for status.
+     */
+    @java.lang.Override public int getStatusValue() {
+      return status_;
+    }
+    /**
+     * <code>.qrpc.meta.Status status = 4;</code>
+     * @return The status.
+     */
+    @java.lang.Override public com.qrpc.Meta.Status getStatus() {
+      com.qrpc.Meta.Status result = com.qrpc.Meta.Status.forNumber(status_);
+      return result == null ? com.qrpc.Meta.Status.UNRECOGNIZED : result;
+    }
+
+    public static final int TYPE_FIELD_NUMBER = 5;
+    private int type_ = 0;
+    /**
+     * <code>.qrpc.meta.Type type = 5;</code>
+     * @return The enum numeric value on the wire for type.
+     */
+    @java.lang.Override public int getTypeValue() {
+      return type_;
+    }
+    /**
+     * <code>.qrpc.meta.Type type = 5;</code>
+     * @return The type.
+     */
+    @java.lang.Override public com.qrpc.Meta.Type getType() {
+      com.qrpc.Meta.Type result = com.qrpc.Meta.Type.forNumber(type_);
+      return result == null ? com.qrpc.Meta.Type.UNRECOGNIZED : result;
     }
 
     private byte memoizedIsInitialized = -1;
@@ -192,11 +451,17 @@ public final class Meta {
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(serviceName_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 1, serviceName_);
       }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(methodId_)) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, methodId_);
+      if (methodId_ != 0) {
+        output.writeInt32(2, methodId_);
       }
-      if (!request_.isEmpty()) {
-        output.writeBytes(3, request_);
+      if (!content_.isEmpty()) {
+        output.writeBytes(3, content_);
+      }
+      if (status_ != com.qrpc.Meta.Status.SUCCESS.getNumber()) {
+        output.writeEnum(4, status_);
+      }
+      if (type_ != com.qrpc.Meta.Type.REQUEST.getNumber()) {
+        output.writeEnum(5, type_);
       }
       getUnknownFields().writeTo(output);
     }
@@ -210,12 +475,21 @@ public final class Meta {
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(serviceName_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, serviceName_);
       }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(methodId_)) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, methodId_);
-      }
-      if (!request_.isEmpty()) {
+      if (methodId_ != 0) {
         size += com.google.protobuf.CodedOutputStream
-          .computeBytesSize(3, request_);
+          .computeInt32Size(2, methodId_);
+      }
+      if (!content_.isEmpty()) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBytesSize(3, content_);
+      }
+      if (status_ != com.qrpc.Meta.Status.SUCCESS.getNumber()) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeEnumSize(4, status_);
+      }
+      if (type_ != com.qrpc.Meta.Type.REQUEST.getNumber()) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeEnumSize(5, type_);
       }
       size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
@@ -234,10 +508,12 @@ public final class Meta {
 
       if (!getServiceName()
           .equals(other.getServiceName())) return false;
-      if (!getMethodId()
-          .equals(other.getMethodId())) return false;
-      if (!getRequest()
-          .equals(other.getRequest())) return false;
+      if (getMethodId()
+          != other.getMethodId()) return false;
+      if (!getContent()
+          .equals(other.getContent())) return false;
+      if (status_ != other.status_) return false;
+      if (type_ != other.type_) return false;
       if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
@@ -252,9 +528,13 @@ public final class Meta {
       hash = (37 * hash) + SERVICE_NAME_FIELD_NUMBER;
       hash = (53 * hash) + getServiceName().hashCode();
       hash = (37 * hash) + METHOD_ID_FIELD_NUMBER;
-      hash = (53 * hash) + getMethodId().hashCode();
-      hash = (37 * hash) + REQUEST_FIELD_NUMBER;
-      hash = (53 * hash) + getRequest().hashCode();
+      hash = (53 * hash) + getMethodId();
+      hash = (37 * hash) + CONTENT_FIELD_NUMBER;
+      hash = (53 * hash) + getContent().hashCode();
+      hash = (37 * hash) + STATUS_FIELD_NUMBER;
+      hash = (53 * hash) + status_;
+      hash = (37 * hash) + TYPE_FIELD_NUMBER;
+      hash = (53 * hash) + type_;
       hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -387,8 +667,10 @@ public final class Meta {
         super.clear();
         bitField0_ = 0;
         serviceName_ = "";
-        methodId_ = "";
-        request_ = com.google.protobuf.ByteString.EMPTY;
+        methodId_ = 0;
+        content_ = com.google.protobuf.ByteString.EMPTY;
+        status_ = 0;
+        type_ = 0;
         return this;
       }
 
@@ -429,7 +711,13 @@ public final class Meta {
           result.methodId_ = methodId_;
         }
         if (((from_bitField0_ & 0x00000004) != 0)) {
-          result.request_ = request_;
+          result.content_ = content_;
+        }
+        if (((from_bitField0_ & 0x00000008) != 0)) {
+          result.status_ = status_;
+        }
+        if (((from_bitField0_ & 0x00000010) != 0)) {
+          result.type_ = type_;
         }
       }
 
@@ -482,13 +770,17 @@ public final class Meta {
           bitField0_ |= 0x00000001;
           onChanged();
         }
-        if (!other.getMethodId().isEmpty()) {
-          methodId_ = other.methodId_;
-          bitField0_ |= 0x00000002;
-          onChanged();
+        if (other.getMethodId() != 0) {
+          setMethodId(other.getMethodId());
         }
-        if (other.getRequest() != com.google.protobuf.ByteString.EMPTY) {
-          setRequest(other.getRequest());
+        if (other.getContent() != com.google.protobuf.ByteString.EMPTY) {
+          setContent(other.getContent());
+        }
+        if (other.status_ != 0) {
+          setStatusValue(other.getStatusValue());
+        }
+        if (other.type_ != 0) {
+          setTypeValue(other.getTypeValue());
         }
         this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
@@ -521,16 +813,26 @@ public final class Meta {
                 bitField0_ |= 0x00000001;
                 break;
               } // case 10
-              case 18: {
-                methodId_ = input.readStringRequireUtf8();
+              case 16: {
+                methodId_ = input.readInt32();
                 bitField0_ |= 0x00000002;
                 break;
-              } // case 18
+              } // case 16
               case 26: {
-                request_ = input.readBytes();
+                content_ = input.readBytes();
                 bitField0_ |= 0x00000004;
                 break;
               } // case 26
+              case 32: {
+                status_ = input.readEnum();
+                bitField0_ |= 0x00000008;
+                break;
+              } // case 32
+              case 40: {
+                type_ = input.readEnum();
+                bitField0_ |= 0x00000010;
+                break;
+              } // case 40
               default: {
                 if (!super.parseUnknownField(input, extensionRegistry, tag)) {
                   done = true; // was an endgroup tag
@@ -620,106 +922,172 @@ public final class Meta {
         return this;
       }
 
-      private java.lang.Object methodId_ = "";
+      private int methodId_ ;
       /**
-       * <code>string method_id = 2;</code>
+       * <code>int32 method_id = 2;</code>
        * @return The methodId.
        */
-      public java.lang.String getMethodId() {
-        java.lang.Object ref = methodId_;
-        if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          methodId_ = s;
-          return s;
-        } else {
-          return (java.lang.String) ref;
-        }
+      @java.lang.Override
+      public int getMethodId() {
+        return methodId_;
       }
       /**
-       * <code>string method_id = 2;</code>
-       * @return The bytes for methodId.
-       */
-      public com.google.protobuf.ByteString
-          getMethodIdBytes() {
-        java.lang.Object ref = methodId_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          methodId_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
-      }
-      /**
-       * <code>string method_id = 2;</code>
+       * <code>int32 method_id = 2;</code>
        * @param value The methodId to set.
        * @return This builder for chaining.
        */
-      public Builder setMethodId(
-          java.lang.String value) {
-        if (value == null) { throw new NullPointerException(); }
+      public Builder setMethodId(int value) {
+
         methodId_ = value;
         bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
       /**
-       * <code>string method_id = 2;</code>
+       * <code>int32 method_id = 2;</code>
        * @return This builder for chaining.
        */
       public Builder clearMethodId() {
-        methodId_ = getDefaultInstance().getMethodId();
         bitField0_ = (bitField0_ & ~0x00000002);
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>string method_id = 2;</code>
-       * @param value The bytes for methodId to set.
-       * @return This builder for chaining.
-       */
-      public Builder setMethodIdBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) { throw new NullPointerException(); }
-        checkByteStringIsUtf8(value);
-        methodId_ = value;
-        bitField0_ |= 0x00000002;
+        methodId_ = 0;
         onChanged();
         return this;
       }
 
-      private com.google.protobuf.ByteString request_ = com.google.protobuf.ByteString.EMPTY;
+      private com.google.protobuf.ByteString content_ = com.google.protobuf.ByteString.EMPTY;
       /**
-       * <code>bytes request = 3;</code>
-       * @return The request.
+       * <code>bytes content = 3;</code>
+       * @return The content.
        */
       @java.lang.Override
-      public com.google.protobuf.ByteString getRequest() {
-        return request_;
+      public com.google.protobuf.ByteString getContent() {
+        return content_;
       }
       /**
-       * <code>bytes request = 3;</code>
-       * @param value The request to set.
+       * <code>bytes content = 3;</code>
+       * @param value The content to set.
        * @return This builder for chaining.
        */
-      public Builder setRequest(com.google.protobuf.ByteString value) {
+      public Builder setContent(com.google.protobuf.ByteString value) {
         if (value == null) { throw new NullPointerException(); }
-        request_ = value;
+        content_ = value;
         bitField0_ |= 0x00000004;
         onChanged();
         return this;
       }
       /**
-       * <code>bytes request = 3;</code>
+       * <code>bytes content = 3;</code>
        * @return This builder for chaining.
        */
-      public Builder clearRequest() {
+      public Builder clearContent() {
         bitField0_ = (bitField0_ & ~0x00000004);
-        request_ = getDefaultInstance().getRequest();
+        content_ = getDefaultInstance().getContent();
+        onChanged();
+        return this;
+      }
+
+      private int status_ = 0;
+      /**
+       * <code>.qrpc.meta.Status status = 4;</code>
+       * @return The enum numeric value on the wire for status.
+       */
+      @java.lang.Override public int getStatusValue() {
+        return status_;
+      }
+      /**
+       * <code>.qrpc.meta.Status status = 4;</code>
+       * @param value The enum numeric value on the wire for status to set.
+       * @return This builder for chaining.
+       */
+      public Builder setStatusValue(int value) {
+        status_ = value;
+        bitField0_ |= 0x00000008;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>.qrpc.meta.Status status = 4;</code>
+       * @return The status.
+       */
+      @java.lang.Override
+      public com.qrpc.Meta.Status getStatus() {
+        com.qrpc.Meta.Status result = com.qrpc.Meta.Status.forNumber(status_);
+        return result == null ? com.qrpc.Meta.Status.UNRECOGNIZED : result;
+      }
+      /**
+       * <code>.qrpc.meta.Status status = 4;</code>
+       * @param value The status to set.
+       * @return This builder for chaining.
+       */
+      public Builder setStatus(com.qrpc.Meta.Status value) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        bitField0_ |= 0x00000008;
+        status_ = value.getNumber();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>.qrpc.meta.Status status = 4;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearStatus() {
+        bitField0_ = (bitField0_ & ~0x00000008);
+        status_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private int type_ = 0;
+      /**
+       * <code>.qrpc.meta.Type type = 5;</code>
+       * @return The enum numeric value on the wire for type.
+       */
+      @java.lang.Override public int getTypeValue() {
+        return type_;
+      }
+      /**
+       * <code>.qrpc.meta.Type type = 5;</code>
+       * @param value The enum numeric value on the wire for type to set.
+       * @return This builder for chaining.
+       */
+      public Builder setTypeValue(int value) {
+        type_ = value;
+        bitField0_ |= 0x00000010;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>.qrpc.meta.Type type = 5;</code>
+       * @return The type.
+       */
+      @java.lang.Override
+      public com.qrpc.Meta.Type getType() {
+        com.qrpc.Meta.Type result = com.qrpc.Meta.Type.forNumber(type_);
+        return result == null ? com.qrpc.Meta.Type.UNRECOGNIZED : result;
+      }
+      /**
+       * <code>.qrpc.meta.Type type = 5;</code>
+       * @param value The type to set.
+       * @return This builder for chaining.
+       */
+      public Builder setType(com.qrpc.Meta.Type value) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        bitField0_ |= 0x00000010;
+        type_ = value.getNumber();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>.qrpc.meta.Type type = 5;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearType() {
+        bitField0_ = (bitField0_ & ~0x00000010);
+        type_ = 0;
         onChanged();
         return this;
       }
@@ -801,10 +1169,14 @@ public final class Meta {
       descriptor;
   static {
     java.lang.String[] descriptorData = {
-      "\n\nmeta.proto\022\tqrpc.meta\"G\n\013RpcMetaData\022\024" +
-      "\n\014service_name\030\001 \001(\t\022\021\n\tmethod_id\030\002 \001(\t\022" +
-      "\017\n\007request\030\003 \001(\014B\022\n\010com.qrpcB\004MetaP\000b\006pr" +
-      "oto3"
+      "\n\nmeta.proto\022\tqrpc.meta\"\211\001\n\013RpcMetaData\022" +
+      "\024\n\014service_name\030\001 \001(\t\022\021\n\tmethod_id\030\002 \001(\005" +
+      "\022\017\n\007content\030\003 \001(\014\022!\n\006status\030\004 \001(\0162\021.qrpc" +
+      ".meta.Status\022\035\n\004type\030\005 \001(\0162\017.qrpc.meta.T" +
+      "ype*:\n\006Status\022\013\n\007SUCCESS\020\000\022\014\n\010TIME_OUT\020\002" +
+      "\022\025\n\021SERVICE_NOT_FOUND\020\003**\n\004Type\022\013\n\007REQUE" +
+      "ST\020\000\022\013\n\007RESPOND\020\001\022\010\n\004PEER\020\002B\022\n\010com.qrpcB" +
+      "\004MetaP\000b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -815,7 +1187,7 @@ public final class Meta {
     internal_static_qrpc_meta_RpcMetaData_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_qrpc_meta_RpcMetaData_descriptor,
-        new java.lang.String[] { "ServiceName", "MethodId", "Request", });
+        new java.lang.String[] { "ServiceName", "MethodId", "Content", "Status", "Type", });
   }
 
   // @@protoc_insertion_point(outer_class_scope)

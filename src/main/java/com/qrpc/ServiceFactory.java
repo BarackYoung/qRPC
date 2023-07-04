@@ -12,5 +12,7 @@ public interface ServiceFactory {
 
     void register(String name, ServiceHolder serviceHolder);
 
+    boolean contains(String name);
+
     ServiceHolder getService(String name);
 }

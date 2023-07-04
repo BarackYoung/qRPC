@@ -11,4 +11,8 @@ public interface Environment {
     Object getProperty(String key);
 
     List<Object> getProperties(String key);
+
+    void setProperty(String key, Object value);
+
+    boolean contains(String key);
 }

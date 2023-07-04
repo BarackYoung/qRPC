@@ -11,6 +11,7 @@ import java.util.concurrent.ConcurrentHashMap;
  **/
 public class ListableServiceFactory implements ServiceFactory {
 
+    private static volatile ServiceFactory serviceFactory;
     private ConcurrentHashMap<String, ServiceHolder> serviceMap;
 
     @Override
@@ -28,7 +29,25 @@ public class ListableServiceFactory implements ServiceFactory {
     }
 
     @Override
+    public boolean contains(String name) {
+        return serviceMap.contains(name);
+    }
+
+    @Override
     public ServiceHolder getService(String name) {
         return serviceMap.get(name);
+    }
+
+    public static ServiceFactory getInstance() {
+        if (serviceFactory != null) {
+            return serviceFactory;
+        }
+        synchronized (ListableServiceFactory.class) {
+            if (serviceFactory != null) {
+                return serviceFactory;
+            }
+            serviceFactory = new ListableServiceFactory();
+            return serviceFactory;
+        }
     }
 }

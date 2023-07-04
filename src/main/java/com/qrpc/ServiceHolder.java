@@ -1,16 +1,14 @@
 package com.qrpc;
 
-import com.google.protobuf.Service;
-import com.google.protobuf.RpcController;
-import com.google.protobuf.Message;
-import com.google.protobuf.RpcCallback;
-import com.google.protobuf.Descriptors;
+import com.google.protobuf.*;
+import lombok.extern.slf4j.Slf4j;
 
 /**
  * @author Yang Lianhuan
  * @version 1.0.0
  * @since 2023/7/3
  **/
+@Slf4j
 public class ServiceHolder {
     private final String serviceName;
     private final Service service;
@@ -34,8 +32,16 @@ public class ServiceHolder {
         return this.serviceFactory;
     }
 
-    void callMethod(String ServiceName, int methodId, RpcController controller, Message request, RpcCallback<Message> callback) {
+    public void callMethod(String ServiceName, int methodId, RpcController controller, Meta.RpcMetaData meta, RpcCallback<Message> callback) {
         Descriptors.MethodDescriptor methodDescriptor = this.service.getDescriptorForType().getMethods().get(methodId);
+        Message request;
+        try {
+            request = this.service.getRequestPrototype(methodDescriptor).getParserForType().parseFrom(meta.getContent());
+        } catch (InvalidProtocolBufferException e) {
+            log.error("content in meta is not a valid protobuf byteString");
+            controller.setFailed("InvalidProtocolBuffer");
+            return;
+        }
         this.service.callMethod(methodDescriptor, controller, request, callback);
     }
 }
