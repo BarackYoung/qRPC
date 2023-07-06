@@ -12,7 +12,7 @@ import java.util.concurrent.ConcurrentHashMap;
 public class ListableServiceFactory implements ServiceFactory {
 
     private static volatile ServiceFactory serviceFactory;
-    private ConcurrentHashMap<String, ServiceHolder> serviceMap;
+    private final ConcurrentHashMap<String, ServiceHolder> serviceMap = new ConcurrentHashMap<>();
 
     @Override
     public void register(Service service) {
@@ -34,7 +34,7 @@ public class ListableServiceFactory implements ServiceFactory {
     }
 
     @Override
-    public ServiceHolder getService(String name) {
+    public ServiceHolder get(String name) {
         return serviceMap.get(name);
     }
 

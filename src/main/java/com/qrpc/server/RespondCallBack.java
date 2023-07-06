@@ -12,14 +12,23 @@ import io.netty.channel.ChannelHandlerContext;
  **/
 public class RespondCallBack implements RpcCallback<Message> {
 
-    private ChannelHandlerContext channelHandlerContext;
+    private final ChannelHandlerContext channelHandlerContext;
+    private final Meta.RpcMetaData metaData;
 
-    public RespondCallBack(ChannelHandlerContext channelHandlerContext) {
+    public RespondCallBack(ChannelHandlerContext channelHandlerContext, Meta.RpcMetaData metaData) {
         this.channelHandlerContext = channelHandlerContext;
+        this.metaData = metaData;
     }
 
     @Override
-    public void run(Message parameter) {
-
+    public void run(Message response) {
+        Meta.RpcMetaData rpcMetaData = Meta.RpcMetaData.newBuilder()
+                .setStatus(Meta.Status.SUCCESS)
+                .setServiceName(this.metaData.getServiceName())
+                .setMethodId(this.metaData.getMethodId())
+                .setType(Meta.Type.RESPOND)
+                .setContent(response.toByteString())
+                .build();
+        channelHandlerContext.writeAndFlush(rpcMetaData);
     }
 }

@@ -13,7 +13,8 @@ import io.netty.channel.SimpleChannelInboundHandler;
  * @since 2023/7/4
  **/
 public class ProtobufInboundHandler extends SimpleChannelInboundHandler<Meta.RpcMetaData> {
-    private ServiceFactory serviceFactory = ListableServiceFactory.getInstance();
+    private final ServiceFactory serviceFactory = ListableServiceFactory.getInstance();
+
     @Override
     protected void channelRead0(ChannelHandlerContext channelHandlerContext, Meta.RpcMetaData metaData) throws Exception {
         String serviceName = metaData.getServiceName();
@@ -25,7 +26,8 @@ public class ProtobufInboundHandler extends SimpleChannelInboundHandler<Meta.Rpc
                     .build();
             channelHandlerContext.writeAndFlush(errData);
         }
-        ServiceHolder targetService = serviceFactory.getService(serviceName);
-        targetService.callMethod(serviceName, methodIndex, new RPCController(), metaData, new RespondCallBack(channelHandlerContext));
+        ServiceHolder targetService = serviceFactory.get(serviceName);
+        targetService.callMethod(serviceName, methodIndex, new qRpcController(), metaData,
+                new RespondCallBack(channelHandlerContext, metaData));
     }
 }

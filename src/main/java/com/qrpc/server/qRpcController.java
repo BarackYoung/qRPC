@@ -10,7 +10,7 @@ import lombok.extern.slf4j.Slf4j;
  * @since 2023/7/4
  **/
 @Slf4j
-public class RPCController implements RpcController {
+public class qRpcController implements RpcController {
 
     @Override
     public void reset() {

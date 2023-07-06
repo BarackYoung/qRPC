@@ -2,6 +2,7 @@ package com.qrpc.server;
 
 import com.qrpc.Banner;
 import com.qrpc.Meta;
+import com.qrpc.ThreadService;
 import io.netty.bootstrap.ServerBootstrap;
 import io.netty.channel.*;
 import io.netty.channel.nio.NioEventLoopGroup;
@@ -20,14 +21,10 @@ import java.net.InetSocketAddress;
  **/
 public class TCPServer implements Server {
 
-    private static final int DEFAULT_BOSS_THREAD = 1;
-
     @Override
     public void start(int port) {
-        EventLoopGroup bossGroup = new NioEventLoopGroup(DEFAULT_BOSS_THREAD);
-        int processorNum = Runtime.getRuntime().availableProcessors();
-        int workThread = Math.min(3, processorNum * 2);
-        EventLoopGroup workerGroup = new NioEventLoopGroup(workThread);
+        EventLoopGroup bossGroup = ThreadService.getServerBossEventLoopGroup();
+        EventLoopGroup workerGroup = ThreadService.getServerWorkEventLoopGroup();
         try {
             ServerBootstrap bootstrap = new ServerBootstrap();
             bootstrap.group(bossGroup, workerGroup)
