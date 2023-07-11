@@ -2,12 +2,18 @@
 <project version="4">
   <component name="CompilerConfiguration">
     <annotationProcessing>
+      <profile default="true" name="Default" enabled="true" />
       <profile name="Maven default annotation processors profile" enabled="true">
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="qRPC" />
+        <module name="qrpc-core" />
+        <module name="qrpc-demo" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="qRPC" target="1.8" />
+      <module name="qrpc-project" target="1.8" />
+    </bytecodeTargetLevel>
   </component>
 </project>
