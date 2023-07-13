@@ -5,7 +5,7 @@ qRPC是一个基于TCP协议、基于Protobuf序列化和代码生成，跨语�
 
 框架具有如下特点：
 
-*   基于TCP协议的非阻塞IO(Netty NIO)实现底层网络通信，吞吐量高。
+*   基于TCP协议的非阻塞IO(NIO)实现底层网络通信，吞吐量高。
 
 
 *   基于Protobuf序列化，紧凑高效、高性能、跨语言、可拓展。
@@ -133,7 +133,7 @@ Introduction to qRPC
 ------
 QRPC is an efficient and lightweight RPC framework based on the TCP protocol, Protobuf serialization, and code generation, spanning multiple languages.
 The framework has the following characteristics:
-*    Non blocking IO (Netty NIO) based on TCP protocol enables low-level network communication with high throughput.
+*    Non blocking IO (NIO) based on TCP protocol enables low-level network communication with high throughput.
 *    Based on Protobuf serialization, it is compact, efficient, high-performance, cross language, and scalable.
 *    Define interfaces and generate code through IDL (Interface Definition Language)
 *    Cross language support for multiple languages such as Java, Go, C++, Python, etc
