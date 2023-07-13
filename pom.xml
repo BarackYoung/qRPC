@@ -13,4 +13,8 @@
         <module>qrpc-demo</module>
     </modules>
 
+    <name>qrpc-core</name>
+    <description>a light multi language RPC framework</description>
+    <url>https://github.com/BarackYoung/qRPC</url>
+
 </project>
