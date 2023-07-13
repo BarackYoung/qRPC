@@ -37,6 +37,7 @@ public class PlainClientEndpoint implements QRpcClientEndpoint {
     private final ChannelInboundHandler inboundHandler;
     private final RequestCache requestCache;
     private final RequestFuture requestFuture;
+
     public PlainClientEndpoint(String ip, int port) {
         this.ip = ip;
         this.port = port;

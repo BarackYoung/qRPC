@@ -27,6 +27,7 @@ public class ConnectionFactory implements Factory<QRpcClientEndpoint> {
             return connectionFactory;
         }
     }
+
     private ConnectionFactory() {
         this.endpointHandlers.add(new PlainTextEndpointHandler());
         this.endpointHandlers.sort(Comparator.comparingInt(EndpointHandler::getOrder));

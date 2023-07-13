@@ -6,7 +6,7 @@ import io.netty.channel.nio.NioEventLoopGroup;
 /**
  * @author Yang Lianhuan
  * @version 1.0.0
- * @since 2023/7/6
+ * @since 2023/4/6
  **/
 public class ThreadService {
     private volatile static EventLoopGroup serverWorkEventLoopGroup;
@@ -23,6 +23,7 @@ public class ThreadService {
         serverBossThreadNum = Math.max(Math.max(1, processors/4), 4);
         serverWorkThreadNum = Math.min(3, processors * 2);
     }
+
     public static EventLoopGroup getServerBossEventLoopGroup() {
         if (serverBossEventLoopGroup != null && !serverBossEventLoopGroup.isShutdown()
                 && !serverBossEventLoopGroup.isTerminated()) {

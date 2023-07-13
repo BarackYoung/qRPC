@@ -12,17 +12,21 @@ import com.qrpc.client.QRpcClientEndpoint;
  **/
 public class SimpleBlockQRpcChannel extends QRpcChannel implements BlockingRpcChannel {
     private final QRpcClientEndpoint endpoint;
+
     private SimpleBlockQRpcChannel(Builder builder) {
         super(builder);
         this.endpoint = ConnectionFactory.getInstance().getEndpoint(getConnectionConfig());
     }
+
     @Override
     public Message callBlockingMethod(Descriptors.MethodDescriptor method, RpcController controller, Message request, Message responsePrototype) {
         return endpoint.blockSend(getMethodInfo(method, controller, request, responsePrototype, null));
     }
+
     public static BlockingQRpcChannelBuilder forAddress(String ip, int port) {
         return new BlockingQRpcChannelBuilder(ip, port);
     }
+
     public static class BlockingQRpcChannelBuilder extends Builder {
         public BlockingQRpcChannelBuilder(String ip, int port) {
             super(ip, port);
