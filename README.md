@@ -28,9 +28,9 @@ qRPC是一个基于TCP协议、基于Protobuf序列化和代码生成，跨语�
 
 ```
 <dependency>
-<groupId>org. qrpc</groupId>
-<artifactId>qrpc core</artifactId>
-<version>1.0.0 SNAPSHOT</version>
+<groupId>org.qrpc</groupId>
+<artifactId>qrpc-core</artifactId>
+<version>1.0.0.SNAPSHOT</version>
 </dependency>
 ```
 
@@ -38,10 +38,10 @@ qRPC是一个基于TCP协议、基于Protobuf序列化和代码生成，跨语�
 
 ```
 Syntax="proto3";
-Option Java_Multiple_ Files=false;
-Option Java_Package="com. qrpc. demo";
-Option Java_Outer_ Classname="Demo";
-Option Java_ Generic_ Services=true; 
+Option Java_Multiple_Files=false;
+Option Java_Package="com.qrpc.demo";
+Option Java_Outer_Classname="Demo";
+Option Java_Generic_Services=true; 
 Package qrpc.demo;
 
 Message request {
@@ -67,12 +67,12 @@ Protoc -- java out=<path to your source root>-- proto path=<your proto path><pro
 
 
 ```
-Public class DemoServiceImpl extensions Demo.DemoService{
+Public class DemoServiceImpl extensions Demo.DemoService {
     @Overrides
-    Public void sendMessage (RpcController controller, Demo.request request, RpcCallback<Demo.response> done){
-        System.out.println ("received from client, message:"+request. getMessage ());
-        Demo. response response=Demo. response. newBuilder(). setMessage ("hi client"). build();
-        Done.run (response);
+    Public void sendMessage(RpcController controller, Demo.request request, RpcCallback<Demo.response> done){
+        System.out.println("received from client, message:"+request. getMessage ());
+        Demo.response response = Demo.response.newBuilder().setMessage("hi client").build();
+        Done.run(response);
     }
 }
 ```
@@ -88,10 +88,10 @@ Demo.requestrequest=Demo.request.newBuilder()
 //Synchronous call
 UsageDemo.DemoService.BlockingInterface blockingStub=Demo.DemoService.newBlockingStub(SimpleBlockQRpcChannel.forAddress("127.0.0.1", 8888).build());
 Demo.response response = blockingStub.sendMessage(null, request);
-System.out.println("synchronous response:"+response. getMessage ());
+System.out.println("synchronous response:" + response.getMessage ());
 
 //Asynchronous call
-UsageDemo.DemoService.Stub stub=Demo.DemoService.newStub(SimpleQRpcChannel.forAddress("127.0.0.1", 8888).build());
+UsageDemo.DemoService.Stub stub = Demo.DemoService.newStub(SimpleQRpcChannel.forAddress("127.0.0.1", 8888).build());
 Stub.sendMessage(null, request, new RpcCallback<Demo. response>() {
     @ Override
     Public void run(Demo.response parameter){
@@ -139,6 +139,14 @@ The framework has the following characteristics:
 *    Cross language support for multiple languages such as Java, Go, C++, Python, etc
 
 
+
+
+
+
+
+
+
+
 Usage
 ----
 Need to understand RPC (Rmote Procedure Call) and use Protobuf ([Proto3 official document]（ https://protobuf.dev/programming-guides/proto3/ If you have used Google gRPC, it will be very easy for you to get started.
@@ -146,18 +154,18 @@ Need to understand RPC (Rmote Procedure Call) and use Protobuf ([Proto3 official
 *   Introducing Maven dependencies
 ```
 <dependency>
-<groupId>org. qrpc</groupId>
-<artifactId>qrpc core</artifactId>
-<version>1.0.0 SNAPSHOT</version>
+<groupId>org.qrpc</groupId>
+<artifactId>qrpc-core</artifactId>
+<version>1.0.0.SNAPSHOT</version>
 </dependency>
 ```
 *   Define data structures and service interfaces
 ```
 Syntax="proto3";
-Option Java_Multiple_ Files=false;
-Option Java_Package="com. qrpc. demo";
-Option Java_Outer_ Classname="Demo";
-Option Java_ Generic_ Services=true; 
+Option Java_Multiple_Files=false;
+Option Java_Package="com.qrpc.demo";
+Option Java_Outer_Classname="Demo";
+Option Java_Generic_Services=true; 
 Package qrpc.demo;
 
 Message request {
@@ -177,12 +185,12 @@ Protoc -- java out=<path to your source root>-- proto path=<your proto path><pro
 ```
 *   Server implementation interface
 ```
-Public class DemoServiceImpl extensions Demo.DemoService{
+Public class DemoServiceImpl extensions Demo.DemoService {
     @Overrides
-    Public void sendMessage (RpcController controller, Demo.request request, RpcCallback<Demo.response> done){
-        System.out.println ("received from client, message:"+request. getMessage ());
-        Demo. response response=Demo. response. newBuilder(). setMessage ("hi client"). build();
-        Done.run (response);
+    Public void sendMessage(RpcController controller, Demo.request request, RpcCallback<Demo.response> done){
+        System.out.println("received from client, message:"+request. getMessage ());
+        Demo.response response = Demo.response.newBuilder().setMessage("hi client").build();
+        Done.run(response);
     }
 }
 ```
@@ -195,10 +203,10 @@ Demo.requestrequest=Demo.request.newBuilder()
 //Synchronous call
 UsageDemo.DemoService.BlockingInterface blockingStub=Demo.DemoService.newBlockingStub(SimpleBlockQRpcChannel.forAddress("127.0.0.1", 8888).build());
 Demo.response response = blockingStub.sendMessage(null, request);
-System.out.println("synchronous response:"+response. getMessage ());
+System.out.println("synchronous response:" + response.getMessage ());
 
 //Asynchronous call
-UsageDemo.DemoService.Stub stub=Demo.DemoService.newStub(SimpleQRpcChannel.forAddress("127.0.0.1", 8888).build());
+UsageDemo.DemoService.Stub stub = Demo.DemoService.newStub(SimpleQRpcChannel.forAddress("127.0.0.1", 8888).build());
 Stub.sendMessage(null, request, new RpcCallback<Demo. response>() {
     @ Override
     Public void run(Demo.response parameter){
