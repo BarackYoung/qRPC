@@ -11,9 +11,5 @@
         <module name="qrpc-demo" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
-      <module name="qRPC" target="1.8" />
-      <module name="qrpc-project" target="1.8" />
-    </bytecodeTargetLevel>
   </component>
 </project>
