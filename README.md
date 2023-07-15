@@ -28,7 +28,7 @@ qRPC是一个基于TCP协议、基于Protobuf序列化和代码生成，跨语�
 
 ```
 <dependency>
-<groupId>org.qrpc</groupId>
+<groupId>io.github.barackyoung</groupId>
 <artifactId>qrpc-core</artifactId>
 <version>1.0.0.SNAPSHOT</version>
 </dependency>
@@ -154,7 +154,7 @@ Need to understand RPC (Rmote Procedure Call) and use Protobuf ([Proto3 official
 *   Introducing Maven dependencies
 ```
 <dependency>
-<groupId>org.qrpc</groupId>
+<groupId>io.github.barackyoung</groupId>
 <artifactId>qrpc-core</artifactId>
 <version>1.0.0.SNAPSHOT</version>
 </dependency>
