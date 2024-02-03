@@ -1,6 +1,6 @@
 import com.google.protobuf.*;
-import com.qrpc.client.Channel.SimpleBlockQRpcChannel;
-import com.qrpc.client.Channel.SimpleQRpcChannel;
+import org.qrpc.client.Channel.SimpleBlockQRpcChannel;
+import org.qrpc.client.Channel.SimpleQRpcChannel;
 
 /**
  * @author Yang Lianhuan

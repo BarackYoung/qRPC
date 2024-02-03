@@ -1,7 +1,7 @@
 syntax = "proto3";
 
 option java_multiple_files = false;
-option java_package = "com.qrpc";
+option java_package = "org.qrpc";
 option java_outer_classname = "Meta";
 
 package qrpc.meta;
@@ -19,6 +19,7 @@ enum Status {
   SUCCESS = 0;
   TIME_OUT = 2;
   SERVICE_NOT_FOUND = 3;
+  SYSTEM_ERROR = 4;
 }
 
 enum Type {

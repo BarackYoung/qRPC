@@ -1,4 +1,4 @@
-import com.qrpc.server.ServerBuilder;
+import org.qrpc.server.ServerBuilder;
 
 /**
  * @author Yang Lianhuan
@@ -7,7 +7,7 @@ import com.qrpc.server.ServerBuilder;
  **/
 public class Server {
     public static void main(String[] args) {
-        com.qrpc.server.Server server = ServerBuilder.forPort(8888)
+        org.qrpc.net.Server server = ServerBuilder.forPort(8888)
                 .addService(new DemoServiceImpl())
                 .build();
         server.start();
