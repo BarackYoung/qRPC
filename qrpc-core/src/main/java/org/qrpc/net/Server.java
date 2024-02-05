@@ -7,7 +7,6 @@ package org.qrpc.net;
  * @version 1.0.0
  * @since 2023/7/1
  **/
-public interface Server {
-
+public interface Server extends Responsible {
     void start();
 }

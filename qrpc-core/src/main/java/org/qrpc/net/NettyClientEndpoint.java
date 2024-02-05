@@ -3,8 +3,6 @@ package org.qrpc.net;
 import org.qrpc.Meta;
 import org.qrpc.ThreadService;
 import org.qrpc.client.Endpoint;
-import org.qrpc.client.RequestCache;
-import org.qrpc.client.RequestFuture;
 import io.netty.bootstrap.Bootstrap;
 import io.netty.channel.*;
 import io.netty.channel.socket.SocketChannel;
@@ -28,20 +26,15 @@ public class NettyClientEndpoint extends Endpoint {
     private final EventLoopGroup eventLoopGroup;
     private ChannelFuture future;
     private final ChannelInboundHandler inboundHandler;
-    private final RequestCache requestCache;
-    private final RequestFuture requestFuture;
+
 
     public NettyClientEndpoint(String ip, int port) {
         super();
         this.ip = ip;
         this.port = port;
         this.eventLoopGroup = ThreadService.getClientEventLoopGroup();
-        this.requestCache = new RequestCache();
-        this.requestFuture = new RequestFuture();
-        this.inboundHandler = new NettyClientInboundHandler(getResponseHandler());
+        this.inboundHandler = new NettyClientInboundHandler(this);
         init();
-        NettyClientSender nettyClientSender = new NettyClientSender(future.channel());
-        setSender(nettyClientSender);
     }
 
     private void init() {
@@ -76,5 +69,10 @@ public class NettyClientEndpoint extends Endpoint {
             Thread.currentThread().interrupt();
             e.printStackTrace();
         }
+    }
+
+    @Override
+    public void send(Object o) {
+        future.channel().writeAndFlush(o);
     }
 }

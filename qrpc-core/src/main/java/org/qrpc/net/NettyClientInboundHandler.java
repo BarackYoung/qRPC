@@ -18,15 +18,15 @@ import io.netty.channel.SimpleChannelInboundHandler;
 @ChannelHandler.Sharable
 public class NettyClientInboundHandler extends SimpleChannelInboundHandler<Meta.RpcMetaData> {
 
-    private final ResponseHandler responseHandler;
+    private final Receiver receiver;
 
-    public NettyClientInboundHandler(ResponseHandler responseHandler) {
-        this.responseHandler = responseHandler;
+    public NettyClientInboundHandler(Receiver receiver) {
+        this.receiver = receiver;
     }
 
     @Override
     protected void channelRead0(ChannelHandlerContext channelHandlerContext, Meta.RpcMetaData metaData) {
-        responseHandler.onMessage(metaData);
+        receiver.onMessage(metaData);
     }
 
     @Override

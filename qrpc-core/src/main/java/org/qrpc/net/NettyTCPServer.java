@@ -3,6 +3,7 @@ package org.qrpc.net;
 import org.qrpc.Banner;
 import org.qrpc.Meta;
 import org.qrpc.ThreadService;
+import org.qrpc.server.AbstractServer;
 import org.qrpc.server.ServerBuilder;
 import io.netty.bootstrap.ServerBootstrap;
 import io.netty.channel.*;
@@ -22,15 +23,15 @@ import java.net.InetSocketAddress;
  * @since 2023/7/1
  **/
 @Slf4j
-public class TCPServer implements Server {
+public class NettyTCPServer extends AbstractServer {
 
     private final int port;
 
-    public TCPServer(int port) {
+    public NettyTCPServer(int port) {
         this.port = port;
     }
 
-    public TCPServer(ServerBuilder builder) {
+    public NettyTCPServer(ServerBuilder builder) {
         this.port = builder.getPort();
     }
 
@@ -53,7 +54,7 @@ public class TCPServer implements Server {
                                     .addLast(new ProtobufDecoder(Meta.RpcMetaData.getDefaultInstance()))
                                     .addLast(new ProtobufVarint32LengthFieldPrepender())
                                     .addLast(new ProtobufEncoder())
-                                    .addLast(new ProtobufInboundHandler());
+                                    .addLast(new NettyServerInboundHandler(NettyTCPServer.this));
                         }
                     });
             Banner.print();

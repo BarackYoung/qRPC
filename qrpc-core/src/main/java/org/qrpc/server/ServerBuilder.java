@@ -2,7 +2,7 @@ package org.qrpc.server;
 
 import com.google.protobuf.Service;
 import org.qrpc.net.Server;
-import org.qrpc.net.TCPServer;
+import org.qrpc.net.NettyTCPServer;
 import lombok.Getter;
 
 /**
@@ -27,7 +27,7 @@ public class ServerBuilder {
     }
 
     public Server build() {
-        return new TCPServer(this);
+        return new NettyTCPServer(this);
     }
 
 }

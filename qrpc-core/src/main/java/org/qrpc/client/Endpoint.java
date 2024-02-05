@@ -6,6 +6,7 @@ import org.qrpc.ConfigEnvironment;
 import org.qrpc.Environment;
 import org.qrpc.Meta;
 import org.qrpc.PropertyKeys;
+import org.qrpc.net.Receiver;
 import org.qrpc.net.Sender;
 import org.qrpc.server.MethodInfoHolder;
 import lombok.Getter;
@@ -18,14 +19,13 @@ import java.util.concurrent.TimeUnit;
 import java.util.concurrent.TimeoutException;
 
 /**
+ * 子类必须调用setSender方法设置消息发送器，接收消息则回调onMessage()方法
+ *
  * @author Yang Lianhuan
  * @version 1.0.0
  * @since 2024/2/3
  **/
-public abstract class Endpoint implements QRpcClientEndpoint {
-    @Getter
-    @Setter
-    protected Sender sender;
+public abstract class Endpoint implements QRpcClientEndpoint, Receiver, Sender {
     protected final RequestFuture requestFuture;
     protected final RequestCache requestCache;
 
@@ -46,8 +46,7 @@ public abstract class Endpoint implements QRpcClientEndpoint {
     public void send(MethodInfoHolder methodInfo) {
         Meta.RpcMetaData metaData = getMetaData(methodInfo);
         requestCache.register(metaData.getRequestId(), methodInfo);
-        assert sender != null;
-        sender.send(metaData);
+        send(metaData);
     }
 
     @Override
@@ -56,8 +55,7 @@ public abstract class Endpoint implements QRpcClientEndpoint {
         CompletableFuture<Message> responseFuture = new CompletableFuture<>();
         requestCache.register(metaData.getRequestId(), methodInfo);
         requestFuture.register(metaData.getRequestId(), responseFuture);
-        assert sender != null;
-        sender.send(metaData);
+        send(metaData);
         try {
             return responseFuture.get(Long.parseLong(environment.getProperty(PropertyKeys.CLIENT_TIMEOUT).toString()), TimeUnit.MILLISECONDS);
         } catch (InterruptedException | ExecutionException | TimeoutException e) {
@@ -69,6 +67,11 @@ public abstract class Endpoint implements QRpcClientEndpoint {
     @Override
     public boolean available() {
         return ready;
+    }
+
+    @Override
+    public void onMessage(Object o) {
+        getResponseHandler().onMessage(o);
     }
 
     private Meta.RpcMetaData getMetaData(MethodInfoHolder methodInfo) {
